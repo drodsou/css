@@ -1,0 +1,237 @@
+:root {
+  --color-bg: black;
+  --color-bg1: hsl(0, 0%, 20%);  
+  --color-fg: white;  
+  --color-1: hsl(12, 100%, 75%);
+  
+  --media-xl: 640px;
+}
+
+:root.theme-light {
+  --color-bg: white;
+  --color-bg1: hsl(0, 0%, 70%);  
+  --color-fg: black;
+  --color-1: hsl(12, 100%, 75%);
+}
+
+body {
+  min-height: 100vh;
+  margin:0;
+  box-sizing: border-box;
+
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: sans-serif;
+
+  font-size: 5.5mm;
+  position: relative;
+
+}
+
+a, a:hover, a:visited {
+  color: var(--color-1);
+}
+
+nav {
+  overflow: hidden;
+}
+
+nav ul {
+  margin:0;
+  padding:0;
+  list-style: none;
+}
+
+/* link take whole li width */
+nav li a {
+  display: block;
+  text-decoration: none;
+}
+
+header {
+  display:flex;
+  flex-wrap: wrap;
+}
+
+.header-left {
+  order:1;
+}
+
+.header-center {
+  order:2;
+  flex:1;
+}
+@media (min-width: 640px) {
+  .header-center-xl {
+    order: 2 !important;
+    flex: 1 !important;
+    width: auto !important;
+  }
+}
+
+.header-right {
+  order:3;
+  /* min-width:25vw; */
+}
+
+.header-bellow {
+  order: 4;
+  width: 100vw;
+}
+
+
+@media (min-width: 640px) {
+  .hide-xl {
+    /* visibility: hidden; */
+    display: none;
+  }
+  
+}
+
+.close {
+  height:0; /* immediate close on responsive change */
+  max-height: 0px;  /* transition on open/close while on small media*/
+}
+@media (min-width: 640px) {
+  .open-xl {
+    /* max-height: auto; */
+    height:auto !important;
+    max-height:100% !important;
+  }
+}
+
+/* Tables */
+table {
+  text-align: justify;
+  width: 100%;
+  border-collapse: collapse; }
+
+td, th {
+  padding: 0.5em;
+  border-bottom: 1px solid var(--color-bg1); }
+
+
+.nav-vertical ul {
+}
+.nav-vertical a {
+  padding-left: 1rem;
+}
+@media (min-width: 640px) {
+  .nav-horizontal-xl ul {
+    display: flex;
+    justify-content: center;
+    column-gap: 1rem;
+  }
+  .nav-horizontal-xl a {
+    padding-left: 0rem;
+  }
+}
+
+nav {
+  max-height: 100%;
+  transition: max-height 0.3s;
+}
+
+
+
+
+
+/* ----------------- copypasted from sakura.css */
+
+blockquote {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 1em;
+  padding-top: 0.8em;
+  padding-bottom: 0.8em;
+  padding-right: 0.8em;
+  border-left: 5px solid var(--color-1);
+  margin-bottom: 2.5rem;
+  background-color: var(--color-bg1); }
+
+blockquote p {
+  margin-bottom: 0; }
+
+img {
+  height: auto;
+  max-width: 100%;
+  margin-top: 0px;
+  margin-bottom: 2.5rem; }
+
+/* Pre and Code */
+pre {
+  background-color: var(--color-bg1);
+  display: block;
+  padding: 1em;
+  overflow-x: auto;
+  margin-top: 0px;
+  margin-bottom: 2.5rem; }
+
+code {
+  font-size: 0.9em;
+  padding: 0 0.5em;
+  background-color: var(--color-bg1);
+  white-space: pre-wrap; }
+
+pre > code {
+  padding: 0;
+  background-color: transparent;
+  white-space: pre; }
+
+
+/* Buttons, forms and input */
+input, textarea {
+  border: 1px solid var(--color-fg); }
+  input:focus, textarea:focus {
+    border: 1px solid var(--color-1); }
+
+textarea {
+  width: 100%; }
+
+.button, button, input[type="submit"], input[type="reset"], input[type="button"] {
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: var(--color-1);
+  color: var(--color-bg);
+  border-radius: 1px;
+  border: 1px solid var(--color-1);
+  cursor: pointer;
+  box-sizing: border-box; }
+  .button[disabled], button[disabled], input[type="submit"][disabled], input[type="reset"][disabled], input[type="button"][disabled] {
+    cursor: default;
+    opacity: .5; }
+  .button:focus:enabled, .button:hover:enabled, button:focus:enabled, button:hover:enabled, input[type="submit"]:focus:enabled, input[type="submit"]:hover:enabled, input[type="reset"]:focus:enabled, input[type="reset"]:hover:enabled, input[type="button"]:focus:enabled, input[type="button"]:hover:enabled {
+    background-color: var(--color-1);
+    border-color: var(--color-1);
+    color: var(--color-bg);
+    outline: 0; }
+
+textarea, select, input[type] {
+  color: var(--color-fg);
+  padding: 6px 10px;
+  /* The 6px vertically centers text on FF, ignored by Webkit */
+  margin-bottom: 10px;
+  background-color: var(--color-bg1);
+  border: 1px solid var(--color-bg1);
+  border-radius: 4px;
+  box-shadow: none;
+  box-sizing: border-box; }
+  textarea:focus, select:focus, input[type]:focus {
+    border: 1px solid var(--color-1);
+    outline: 0; }
+
+input[type="checkbox"]:focus {
+  outline: 1px dotted var(--color-1); }
+
+label, legend, fieldset {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600; }
+
+
+
+
+
