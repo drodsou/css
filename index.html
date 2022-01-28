@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="normalize.css"> -->
+  <link rel="stylesheet" href="drodsou-reset.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">logo</div>
+    <div class="header-center hide-xl">center</div>
+    <div class="header-right">
+      <span class="theme">theme</span>
+      <span class="burger hide-xl">burger</span>
+    </div>
+    <nav class="header-bellow header-center-xl nav-vertical nav-horizontal-xl close open-xl">
+      <ul class="">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+      </ul>
+    </nav>
+  </header>
+hello<br>
+
+<script>
+  document.querySelector('.theme').addEventListener('click',()=>{
+    document.querySelector('html').classList.toggle('theme-light');
+  });
+  document.querySelector('.burger').addEventListener('click',()=>{
+    let nav = document.querySelector('header nav');
+    // for max-height:auto transition to work
+    //nav.style.maxHeight = (nav.classList.contains('close') ? nav.scrollHeight : 0) + "px";
+    nav.classList.toggle('close');  
+
+  });
+</script>
+  
+</body>
+</html>
