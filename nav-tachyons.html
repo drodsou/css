@@ -7,20 +7,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link rel="stylesheet" href="xaa/normalize.css"> -->
   <link rel="stylesheet" href="css/drodsou.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/tachyons.min.css">
+  <!-- <link rel="stylesheet" href="style.css"> -->
   <title>Document</title>
 </head>
 <body>
 
-  <header>
-    <div class="header-left">logo</div>
-    <div class="header-center hide-xl">center</div>
-    <div class="header-right">
+  <header class="flex flex-wrap w-100">
+    <div class="order-1">logo</div>
+    <div class="order-2 dn-ns">center</div>
+    <div class="order-3 w-10">
       <span class="theme">theme</span>
-      <span class="burger hide-xl">burger</span>
+      <span class="burger dn-ns">burger</span>
     </div>
-    <nav class="header-bellow header-center-xl nav-vertical nav-horizontal-xl close open-xl">
-      <ul class="">
+    <nav class="order-4 w-100 order-2-ns w-80-ns flex-ns h-0 h-auto-ns">
+      <ul class="flex-ns justify-center-ns">
         <li><a href="#">menu1</a></li>
         <li><a href="#">menu2</a></li>
         <li><a href="#">menu3</a></li>
@@ -38,16 +39,16 @@ hello<br>
   });
   document.querySelector('.burger').addEventListener('click',()=>{
     let nav = document.querySelector('header nav');
-    // for max-height:auto transition to work
-    // nav.style.maxHeight = (nav.classList.contains('close') ? nav.scrollHeight : 0) + "px";
-    if (nav.classList.contains('close')) { 
-      nav.style.maxHeight = nav.scrollHeight  + "px"; 
-      nav.classList.toggle('close');  
-    } else {
-      nav.style.maxHeight = '0px'; 
-      setTimeout(()=>nav.classList.toggle('close'), 300);  // same as nav css transition  time
-    }
-    // if (!nav.classList.contains('close')) { delete nav.style.maxHeight }
+    nav.classList.toggle('h-0');  
+
+    // if (nav.classList.contains('close')) { 
+    //   nav.style.maxHeight = nav.scrollHeight  + "px"; 
+    //   nav.classList.toggle('h0');  
+    // } else {
+    //   nav.style.maxHeight = '0px'; 
+    //   setTimeout(()=>nav.classList.toggle('h0'), 300);  // same as nav css transition  time
+    // }
+    
     
     
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../reset.css">
+  <link rel="stylesheet" href="./header-nav.css">
+
+  <title>Document</title>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">left</div>
+    <div class="header-center u-hide@ns">center</div>
+    <div class="header-right">
+      <span class="burger u-hide@ns">
+        CLICK
+      </span>
+    </div>
+    <nav class="header-bellow header-center@ns nav-vertical nav-horizontal@ns nav-close nav-open@ns">
+      <ul class="">
+        <li><a href="#">menu1</a></li>
+        <li><a href="#">menu2</a></li>
+        <li><a href="#">menu3</a></li>
+      </ul>
+    </nav>
+  </header>
+
+ 
+  <p>body text</p>
+
+
+<script>
+
+  document.querySelector('.burger').addEventListener('click',()=>{
+
+
+    // for max-height:auto transition to work
+    const navTransitionDuration = 300;
+    document.querySelector(':root').style
+      .setProperty('--nav-transition-duration', (navTransitionDuration/1000) + 's');
+    let nav = document.querySelector('header nav');
+
+    if (nav.classList.contains('nav-close')) { 
+      nav.style.maxHeight = nav.scrollHeight  + "px"; 
+      nav.classList.remove('nav-close');  
+    } else {
+      nav.style.maxHeight = '0px'; 
+      setTimeout(()=>nav.classList.add('nav-close'), navTransitionDuration);  // sets height = 0
+    }
+    
+
+  });
+</script>
+  
+</body>
+</html>

@@ -1,5 +1,26 @@
+@import './css/drodsou/reset.css';
+@import './css/drodsou/comp/header-nav.css';
+
+/* theme(s) */
 :root {
-  /* --color-bg: black;
-  --color-fg: red;   */
+  --color-bg: black;
+  --color-bg1: hsl(0, 0%, 20%);  
+  --color-fg: white;  
+  --color-1: hsl(12, 100%, 75%);
+  
+  --nav-transition-duration: 0s;  /* updated with javascript */
+}
+
+:root.theme-light {
+  --color-bg: white;
+  --color-bg1: hsl(0, 0%, 70%);  
+  --color-fg: black;
+  --color-1: hsl(12, 100%, 75%);
+}
+
+
+/* idea from mvp-css  ?? */
+section aside {
+  display: inline-block;
 }
 

@@ -1,0 +1,60 @@
+/* based on Bulma hamburger */
+
+.burger {
+  --burger-size-out: 40px;
+  --burger-size-in: 16px;
+  --burger-transition-duration: 0.3s;
+  --burger-transition-easing: linear;
+  --burger-color-bg-hover: rgba(0,0,0, 0.1);
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  width: var(--burger-size-out);
+  height: var(--burger-size-out);
+}
+.burger:hover {
+  background-color: var(--burger-color-bg-hover);
+}
+
+.burger span {
+    display: block;
+    height: 1px;
+    left: calc(50% - 8px);
+    position: absolute;
+    transform-origin: center;
+    transition-duration: var(--burger-transition-duration);
+    transition-property: background-color, opacity, transform;
+    transition-timing-function: var(--burger-transition-easing);
+    width: var(--burger-size-in);
+
+    background-color: currentColor;
+    
+}
+
+.burger span:nth-child(1) {
+  top: calc(50% - 6px);
+}
+.burger span:nth-child(2) {
+  height: 2px;
+  top: calc(50% - 1px);
+}
+.burger span:nth-child(3) {
+  top: calc(50% + 4px);
+}
+
+
+.burger.is-active span:nth-child(1) {
+  transform: translateY(5px) rotate(45deg);
+}
+.burger.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.is-active span:nth-child(3) {
+  transform: translateY(-5px) rotate(-45deg);
+}
