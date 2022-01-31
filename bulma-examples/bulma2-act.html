@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog - Tailsaw </title>
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.3/css/bulma.min.css" />
+    
+</head>
+
+<body>
+  <!-- START NAV -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+      
+        <a class="navbar-item" href="../">
+          <img src="../images/bulma.png" alt="Logo">
+        </a>
+
+        <!-- burger -->
+        <span class="navbar-burger burger" data-target="navbarMenu"
+          onclick="app.toggleBurger(this)"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+
+      </div>
+
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+
+          <!-- search -->
+          <div class="navbar-item  app-search-container">
+            <!-- act here -->
+          </div>
+
+          <!-- menu items -->
+          <a class="navbar-item is-active is-size-5 has-text-weight-semibold">
+            Home
+          </a>
+          <a class="navbar-item is-size-5 has-text-weight-semibold">
+            Examples
+          </a>
+          <a class="navbar-item is-size-5 has-text-weight-semibold">
+            Features
+          </a>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- END NAV -->
+
+  <!-- Image -->
+  <section class="hero ">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-8 is-offset-2">
+            <figure class="image is-16by9">
+              <img src="../images/first-post.png" alt="">
+            </figure>
+          </div>
+        </div>
+
+        <section class="section">
+          <div class="columns">
+            <div class="column is-8 is-offset-2">
+              <div class="content is-medium">
+                <h2 class="subtitle is-4">December 25, 2022</h2>
+                <h1 class="title">Getting Started</h1>
+                <p>This is a starter template for creating a beautiful, customizable blog with minimal
+                  effort. You’ll only have to change a few settings and you’re ready to go. As with all Jigsaw sites,
+                  configuration settings can be found in config</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="is-divider"></div>
+
+        <section class="section">
+          <div class="columns">
+            <div class="column is-8 is-offset-2">
+              <div class="content is-medium">
+                <h2 class="subtitle is-4">December 25, 2022</h2>
+                <h1 class="title">Getting Started</h1>
+                <p>This is a starter template for creating a beautiful, customizable blog with minimal
+                  effort. You’ll only have to change a few settings and you’re ready to go. As with all Jigsaw sites,
+                  configuration settings can be found in config</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- newsletter -->
+  <section class="section">
+    <div class="columns">
+      <div class="column is-10 is-offset-1">
+        <div class="container has-text-centered is-fluid">
+          <div class="hero is-light">
+            <div class="hero-body">
+              <h2 class="title is-4">Sign up for our newsletter</h2>
+                <div class="column is-6 is-offset-3">
+                  <div class="field has-addons has-addons-centered">
+                    <div class="control is-expanded">
+                      <input class="input " type="text" placeholder="Email address">
+                    </div>
+                    <div class="control">
+                      <a class="button is-info">
+                        Subscribe
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles -->
+
+  <section class="hero ">
+    <div class="hero-body">
+      <div class="container">
+
+        <section class="section">
+          <div class="columns is-variable is-8">
+            <div class="column is-5 is-offset-1 ">
+              <div class="content is-medium">
+                <h2 class="subtitle is-5 has-text-grey">December 23, 2022</h2>
+                <h1 class="title has-text-black is-3">Custom 404 Pages</h1>
+                <p class="has-text-dark">This starter template includes a custom 404 Not Found error page, located at
+                  /source/404.blade.php.
+                  To preview the 404 page, you can visit /404 in your browser. Depending...</p>
+              </div>
+            </div>
+            <div class="column is-5">
+              <div class="content is-medium">
+                <h2 class="subtitle is-5 has-text-grey">December 25, 2022</h2>
+                <h1 class="title has-text-black is-3">Fuse Search</h1>
+                <p class="has-text-dark">To provide fast, local search of your blog, this starter template comes with a
+                  pre-built Vue.js
+                  component that uses Fuse.js. Fuse.js is a "lightweight fuzzy-search library with no...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="is-divider"></div>
+
+        <section class="section">
+          <div class="columns is-variable is-8">
+            <div class="column is-5 is-offset-1">
+              <div class="content is-medium">
+                <h2 class="subtitle is-5 has-text-grey">December 25, 2022</h2>
+                <h1 class="title has-text-black is-3">Getting Started</h1>
+                <p class="has-text-dark">This is a starter template for creating a beautiful, customizable blog with
+                  minimal
+                  effort. You’ll only have to change a few settings and you’re ready to go. As with all Jigsaw sites,
+                  configuration settings can be found in config</p>
+              </div>
+            </div>
+            <div class="column is-5">
+              <div class="content is-medium">
+                <h2 class="subtitle is-5 has-text-grey">December 25, 2022</h2>
+                <h1 class="title has-text-black is-3">Getting Started</h1>
+                <p class="has-text-dark">This is a starter template for creating a beautiful, customizable blog with
+                  minimal
+                  effort. You’ll only have to change a few settings and you’re ready to go. As with all Jigsaw sites,
+                  configuration settings can be found in config</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Bulma - Blog theme</strong> by <a href="https://gonzalojs.com">Gonzalo Gutierrez</a>. Based on the <a
+          href="http://jigsaw-blog-staging.tighten.co/">jigsaw-blog</a>. The source code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>
+      </p>
+    </div>
+  </footer>
+
+  <script type="module">
+    import {tags, createTag, render} from './act-preact.min.js';
+    let {div, input, span, i, p} = tags;
+
+    const app = window.app = {
+
+      // vanilla javascript event, no need for act.js
+      toggleBurger (burger) {
+        const burgerTargetName = burger.dataset.target;
+        const burgerTarget = document.getElementById(burgerTargetName);
+
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        burger.classList.toggle('is-active');
+        burgerTarget.classList.toggle('is-active');
+      },
+
+      searched : ''
+    }
+
+    
+    // 
+    const Search = createTag( (props, self) => (
+
+      div( {class:"control has-icons-left"},
+        input( {class:"input is-rounded", type:"email", placeholder:"Search", 
+          onKeyUp: (e)=>{ app.searched = e.target.value; self.forceUpdate(); },
+          // Change: (e)=>{},
+        }),
+        span( {class:"icon is-left"},
+          i( {class:"fa fa-search"})
+        ),
+        // -- new
+        div( { class: `app-search-results ${!app.searched.length ? 'is-hidden' : ''}` },
+          p(app.searched)
+        )
+      )
+      
+    ), {});
+
+    render(Search,".app-search-container");  
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+
+    });
+
+  </script>
+
+  <style>
+    :root {
+      --app-search-width: 100%;
+    }
+
+    @media screen and (min-width: 1024px) {
+      :root {
+        --app-search-width: 240px;
+      }
+    }
+
+    .app-search-container > div{
+      position: relative;
+      width: var(--app-search-width); 
+    }
+
+    .app-search-results {
+      background-color: rgba(0,0,0,0.1);
+      backdrop-filter: blur(4px);
+      position: absolute;
+      text-align: center;
+      z-index: 99;
+      margin-top: 10px;
+      padding: 10px;
+      width: inherit;
+
+    }
+  </style>
+
+</body>
