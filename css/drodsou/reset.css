@@ -51,7 +51,7 @@ td, th {
 /* nav lists */
 
 nav {
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 nav ul {
