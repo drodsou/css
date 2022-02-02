@@ -50,10 +50,6 @@ td, th {
 
 /* nav lists */
 
-nav {
-  /* overflow: hidden; */
-}
-
 nav ul {
   margin:0;
   padding:0;
@@ -66,10 +62,64 @@ nav li a {
   text-decoration: none;
 }
 
+/* overlay: dropdown, dropright: to put in a <li> */
+.drop {
+  position: relative;
+  overflow: visible;
+}
 
-/* ----- utilities */
+.drop ul {
+  position: absolute;
+  overflow: hidden;
+  z-index: 99;
+  height: 0;
+  margin:0;
+  padding:0;
+}
 
-/* flew-wrap break */
+.drop-down:hover ul {  
+  height: auto;
+}
+
+.drop-right:hover ul {
+  height: auto;
+  left:100%;
+  top:0;
+}
+
+
+/* vertical lit tree, autoclose: see tree-menu.html example, with JS */
+ul.tree > li > ul {
+  overflow: hidden;
+}
+
+ul.tree > li > ul > li {
+  padding-left: 0.5rem;
+}
+
+li.tree-sub > ul {  /* no manual add, use JS to auto add, until :has exists */
+  height:0;
+}
+
+li.tree-sub.tree-open > ul {
+  height:auto;
+}
+
+li.tree-sub > a::after {
+  float: right;
+  content: '>';
+  padding-right: 5px;
+}
+
+li.tree-open > a::after {
+  transform: rotate(90deg); 
+}
+
+
+
+
+
+/* utilities */
 br.flex {
   flex-basis: 100%;
   content: '';
@@ -85,35 +135,14 @@ br.flex {
   
 }
 
-/* quick row, or col responsive to row */
-.col {
-  display:flex;
-  flex-wrap: wrap;
-  column-gap: 0.5rem;
-  flex-direction: column;
+img {
+  display: block;
+  max-width: 100%;
+  
+  height: auto;
+  margin-top: 0px;
+  margin-bottom: 2.5rem; 
 }
-
-.row {
-  display:flex;
-  flex-wrap: wrap;
-  column-gap: 0.5rem;
-}
-
-@media (min-width: 840px) {
-  .col\@ns{
-    flex-direction: column;
-  }
-  .row\@ns{
-    flex-direction: row;
-  }
-}
-
-.col > div, .row > div {
-  flex: 1;
-}
-
-
-
 
 
 /* ----------------- copypasted from sakura.css */
@@ -132,11 +161,7 @@ blockquote {
 blockquote p {
   margin-bottom: 0; }
 
-img {
-  height: auto;
-  max-width: 100%;
-  margin-top: 0px;
-  margin-bottom: 2.5rem; }
+
 
 /* Pre and Code */
 pre {

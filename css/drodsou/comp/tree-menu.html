@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../reset.css">
+  <title>Document</title>
+</head>
+<body>
+
+  <style>
+    nav li {
+      width: 150px;
+      border: 1px solid gray;
+    }
+  </style>
+
+
+  <nav>
+    <ul class="tree">
+      <li><a href="#">one</a></li>
+
+      <li>
+        <a href="#">two</a>
+        <ul>
+          <li><a href="#" onClick="console.log('two.one')">two.one</a></li>
+          <li><a href="#" onClick="console.log('two.two')">two.two</a></li>
+        </ul>
+      </li>
+
+      <li><a href="#">three</a></li>
+
+      <li>
+        <a href="#">four</a>
+        <ul>
+          <li><a href="#" onClick="console.log('four.one')">four.one</a></li>
+          <li><a href="#" onClick="console.log('four.two')">four.two</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+
+  <p>body text</p>
+
+
+  <script>
+    /* adds .tree-sub to all li's with ul child. And attachs eventlistener to open/close via .tree-open */
+    document.querySelectorAll('ul.tree > li > ul').forEach(e=>{
+      let p = e.parentElement;
+      let pa = e.parentElement.querySelector('a');
+      let pp = p.parentElement;
+      p.classList.add('tree-sub');  // unless you are in the future and css :has is a thing already.
+
+      // open, close all others
+      pa.addEventListener('click',()=>{
+        console.log('clicked tree-sub');
+        let closing = p.classList.contains('tree-open');
+        pp.querySelectorAll('.tree-sub').forEach(ts=>ts.classList.remove('tree-open'));
+        if (!closing) {p.classList.add('tree-open')};
+      });
+    });
+
+  </script>
+  
+</body>
+</html>

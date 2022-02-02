@@ -5,7 +5,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../reset.css">
-  <link rel="stylesheet" href="./dropdown.css">
   <title>Document</title>
 </head>
 <body>
@@ -14,30 +13,33 @@
     nav > ul{ 
       display: flex; 
       column-gap: 1rem;
+
+      /* flex-direction: column; */
     }
+    nav li {
+      width: 100px;
+      border: 1px solid gray;
+    }
+
   </style>
 
 
   <nav>
     <ul>
       <li><a href="#">one</a></li>
-
-      <li class="dropdown">
+      <!-- <li class="drop drop-right"> -->
+      <li class="drop drop-down">
         <a href="#">two</a>
-
-        <div>me cago en dios<br/>yensuputam adre </div>
-
-        <!-- <ul>
-          <li><a href="#">two.one</a></li>
-          <li><a href="#">two.two</a></li>
-        </ul> -->
+        <ul>
+          <li><a href="#" onClick="console.log('two.one')">two.one</a></li>
+          <li><a href="#" onClick="console.log('two.two')">two.two</a></li>
+        </ul>
       </li>
 
-      <li><a href="#">three</a></li>
+      <li><a href="#">three<a></li>
     </ul>
   </nav>
-  <!-- <p>body text</p> -->
-
+  <p>body text</p>
   
 </body>
 </html>
