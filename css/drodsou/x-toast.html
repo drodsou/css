@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="./x-toast3.js"></script>
+  <style>
+    x-toast {
+      background-color: red;
+    }
+  </style>
+
+  <h1>grrrr</h1>
+  <button onclick="document.querySelector('x-toast').show(`hey <b>${Date.now()}</b>`)">show toast</button>
+
+  <x-toast timeout="500"></x-toast>
+
+  <script>
+    setTimeout(()=>document.querySelector('x-toast').innerHTML = '<p>UNO</p>', 1000);
+    setTimeout(()=>document.querySelector('x-toast').innerHTML = '<p>DOS</p>', 1010);
+  </script>
+</body>
+</html>
