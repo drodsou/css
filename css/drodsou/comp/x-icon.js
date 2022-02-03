@@ -18,7 +18,6 @@
   customElements.define("x-icon", class extends HTMLElement {
 
     connectedCallback() {
-      
       this.innerHTML = style + icons[('' + this.getAttribute('type')).toLowerCase()]
     }
 

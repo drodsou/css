@@ -6,10 +6,10 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="./x-toast3.js"></script>
+  <script src="./x-toast.js"></script>
   <style>
     x-toast {
-      background-color: red;
+      /* background-color: red; */
     }
   </style>
 
@@ -17,6 +17,8 @@
   <button onclick="document.querySelector('x-toast').show(`hey <b>${Date.now()}</b>`)">show toast</button>
 
   <x-toast timeout="500"></x-toast>
+
+  <div class="all-children-hidden">wasp</div>
 
   <script>
     setTimeout(()=>document.querySelector('x-toast').innerHTML = '<p>UNO</p>', 1000);
