@@ -10,7 +10,6 @@
       this.shadowRoot.innerHTML = /*html*/`
         <style>
           :host {
-            padding: 20px;
             transition: all 0.2s linear;
             position:fixed;
             width:80vw;
@@ -19,11 +18,15 @@
             color: white;
             margin:0;
             overflow: hidden;
-            display:block;
-            height: 40px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0px;
+            height: 3rem;
 
-            /* opacity: 0; */
-            /* bottom: -40px; */
+            /* initially hidden */
+            bottom: -3rem;  /* same as height */
+            opacity: 0;
           }
 
           :host(.visible) {
@@ -31,49 +34,9 @@
             bottom: 0px;
           }
 
-          #all-children-hidden {
-            overflow:hidden;
-            height:80px;  /* 0 */
-            padding:0;
-            margin:0;
-            background: blue;
-          }
         </style>
         <div id="show"></div>
-        <div id="all-children-hidden"><slot></slot></div>
       `;
-
-      // this.shadowRoot.addEventListener('slotchange', event => {
-      //   // this.shadowRoot.querySelector('slot').assignedNodes().forEach(e=>{
-      //   //   this.show(e.innerHTML || e.textContent);
-      //   // });
-
-      //   let e = this.shadowRoot.querySelector('slot').assignedNodes()[0];
-      //   this.show(e.innerHTML || e.textContent);
-      // });
-      let lastChildren;
-
-      this.mutationObserver = new MutationObserver(()=>{
-        // let e = (this.shadowRoot.querySelector('slot').assignedNodes()||[{}])[0] ;
-        let e = (this.shadowRoot.host.querySelector('p'));
-        let currChildren = e.innerHTML || e.textContent;
-        console.log('mut', currChildren);
-        if (lastChildren !== currChildren) {
-          lastChildren = currChildren;
-          this.show(currChildren);
-        }
-      });
-      this.mutationObserver.observe( this.shadowRoot.host , { subtree:true, attributes:true, childList: true });
-
-      
- 
-
-
-      
-      // document.addEventListener('DOMContentLoaded', ()=>{
-      //   this.shadowRoot.host.classList.add('hidden');
-      // });
-      
 
     }
 
@@ -98,7 +61,6 @@
       this._queue.shift();
       this._showNext();
     }
-        
 
     show(content) {
       console.log('show', content);

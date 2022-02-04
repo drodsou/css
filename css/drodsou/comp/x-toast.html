@@ -6,23 +6,13 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="./x-toast.js"></script>
-  <style>
-    x-toast {
-      /* background-color: red; */
-    }
-  </style>
+  <script src="./x-toast-n.js"></script>
+  
 
-  <h1>grrrr</h1>
-  <button onclick="document.querySelector('x-toast').show(`hey <b>${Date.now()}</b>`)">show toast</button>
+  <h1>toast</h1>
+  <button onclick="document.querySelector('x-toast-n').show(`hey <b>${Date.now()}</b>`)">show toast</button>
 
-  <x-toast timeout="500"></x-toast>
+  <x-toast timeout="1000"></x-toast>
 
-  <div class="all-children-hidden">wasp</div>
-
-  <script>
-    setTimeout(()=>document.querySelector('x-toast').innerHTML = '<p>UNO</p>', 1000);
-    setTimeout(()=>document.querySelector('x-toast').innerHTML = '<p>DOS</p>', 1010);
-  </script>
 </body>
 </html>

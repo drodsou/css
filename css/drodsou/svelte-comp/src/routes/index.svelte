@@ -16,18 +16,16 @@ setTimeout(()=>{
     fill: teal;
     width: 40px;
   } */
-
 </style>
 
+<h1>x-toast</h1>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
-<!-- ICON: <x-icon type="forbidden"></x-icon> -->
-ICON:<x-icon type={i}></x-icon>
+<x-toast></x-toast>
 <button on:click={()=>document.querySelector('x-toast').show(`toast <b>${Date.now()}</b>`)}>show toast</button>
 
-<hr/>
 
+<h1>x-icon & Icon</h1>
+
+<x-icon type={i}></x-icon>
 <Icon type={i} />
 

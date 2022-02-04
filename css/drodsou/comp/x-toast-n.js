@@ -1,6 +1,6 @@
 ;(function(){
 
-  customElements.define( 'x-toast', class extends HTMLElement {   
+  customElements.define( 'x-toast-n', class extends HTMLElement {   
     constructor() { 
       super();
 
