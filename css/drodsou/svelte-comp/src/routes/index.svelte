@@ -1,21 +1,33 @@
 <script>
 
-let t = `toast 2`;
+import Icon from '../lib/icon.svelte';
 
 
-
+let i = `forbidden`;
 
 setTimeout(()=>{
-  console.log('toast 3??')
-  t = "toast 3";
-}, 2000);
+  i = "arrow-right";
+}, 1000);
 
 </script>
---
+
+<style>
+  /* x-icon {
+    fill: teal;
+    width: 40px;
+  } */
+
+</style>
+
+
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
+<!-- ICON: <x-icon type="forbidden"></x-icon> -->
+ICON:<x-icon type={i}></x-icon>
 <button on:click={()=>document.querySelector('x-toast').show(`toast <b>${Date.now()}</b>`)}>show toast</button>
 
-<p>Tostada: {t}</p>
-<x-toast>{t}</x-toast>
+<hr/>
+
+<Icon type={i} />
+

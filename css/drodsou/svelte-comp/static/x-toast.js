@@ -1,11 +1,8 @@
 ;(function(){
-  
-  const cls = 'toast' + Math.random().toString().slice(2,6);
 
   customElements.define( 'x-toast', class extends HTMLElement {   
     constructor() { 
       super();
-
 
       this._queue = [];
 
@@ -54,13 +51,23 @@
       //   let e = this.shadowRoot.querySelector('slot').assignedNodes()[0];
       //   this.show(e.innerHTML || e.textContent);
       // });
+      let lastChildren;
 
       this.mutationObserver = new MutationObserver(()=>{
-        console.log('mutación, mutación, derrama!');
-        let e = this.shadowRoot.querySelector('#all-children-hidden');
-        this.show(e.innerHTML || e.textContent);
+        // let e = (this.shadowRoot.querySelector('slot').assignedNodes()||[{}])[0] ;
+        let e = (this.shadowRoot.host.querySelector('p'));
+        let currChildren = e.innerHTML || e.textContent;
+        console.log('mut', currChildren);
+        if (lastChildren !== currChildren) {
+          lastChildren = currChildren;
+          this.show(currChildren);
+        }
       });
-      this.mutationObserver.observe( this.shadowRoot.querySelector('#all-children-hidden') , { subtree:true, attributes:true, childList: true });
+      this.mutationObserver.observe( this.shadowRoot.host , { subtree:true, attributes:true, childList: true });
+
+      
+ 
+
 
       
       // document.addEventListener('DOMContentLoaded', ()=>{
