@@ -6,13 +6,20 @@
   <title>Document</title>
 </head>
 <body>
-  <script src="./x-toast-n.js"></script>
+  <script type="module">
+    import './x-toast-n.js';
+
+    let app = window.app = {
+      count: 0
+    };
+  </script>
+
   
 
   <h1>toast</h1>
-  <button onclick="document.querySelector('x-toast-n').show(`hey <b>${Date.now()}</b>`)">show toast</button>
+  <button onclick="document.querySelector('x-toast-n').show(`hey ${app.count++}`)">add toast</button>
 
-  <x-toast timeout="1000"></x-toast>
+  <x-toast-n timeout="1000"></x-toast-n>
 
 </body>
 </html>
