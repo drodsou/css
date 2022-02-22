@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    :root {
+      color: white;
+      background-color: black;
+      font-family: sans-serif;
+      font-size: 12px;
+    }
+
+    #colors {
+      display:flex;
+      flex-wrap: wrap;
+      gap:1rem;
+    }
+    
+    .colors {
+      display: flex;
+    }
+    .header {
+      margin-bottom: 10px;
+      border-bottom: 1px solid white;
+    }
+    .column {
+
+    }
+
+    .cell {
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Colors HSL</h1>
+  <div id="colors"></>
+  
+  
+  <script>
+      const app = {
+        hNum :15,
+        sNum: 5,
+        lNum: 6,
+      }
+
+      app.hArr = Array.from(Array(360).keys()).filter(e => e % (360/(app.hNum)) === 0);
+      // app.sArr = Array.from(Array(101).keys()).filter(e => e % (100/(app.sNum-1)) === 0);
+      app.sArr = [25,50,75,100];
+      // app.lArr = Array.from(Array(101).keys()).filter(e => e % (100/(app.lNum-1)) === 0).slice(1,-1);
+      app.lArr = [10, 20, 30, 40, 50, 60, 70, 80]
+
+      console.log(app.sNum, app.sArr)
+
+      function colors(s) {
+        let colors = `<div><h1>Colors: s=${s}</h1><div class="colors">`;
+        for (let h of app.hArr) {
+          colors += `<div class="column">
+          <div class="header">${h}</div>`;
+          for (let l of app.lArr) {
+            // for (let s of app.sArr) {
+              colors += `<div class="cell" style="color:${l>60 ? 'black' : 'white'};background-color: hsl(${h},${s}%,${l}%);">${l}</div>`
+            // }
+          }
+          colors += `</div>`;
+        }
+        colors += `</div></div>`;
+
+        return colors;
+      }
+
+      function grays() {
+        let colors = `<div><h1>Grays s=0</h1><div class="colors">`;
+        h = 0; s = 0;
+        colors += `<div class="column">
+        <div class="header">${h}</div>`;
+        for (let l of app.lArr) {
+          // for (let s of app.sArr) {
+            colors += `<div class="cell" style="color:${l>60 ? 'black' : 'white'};background-color: hsl(${h},${s}%,${l}%);">${l}</div>`
+          // }
+        }
+        colors += `</div>`;
+        
+        colors += `</div></div>`;
+
+        return colors;
+      }
+
+
+
+
+      document.querySelector('#colors').innerHTML = app.sArr.reduce((p,c)=>p+colors(c),'') + grays();
+
+
+  </script>
+  
+</body>
+</html>
