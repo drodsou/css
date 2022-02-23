@@ -13,6 +13,10 @@
       font-size: 12px;
     }
 
+    h1 {
+      font-size: 1.2rem;
+    }
+
     #colors {
       display:flex;
       flex-wrap: wrap;
@@ -22,12 +26,17 @@
     .colors {
       display: flex;
     }
+    .colors:hover .column {
+      filter: saturate(0);
+    }
+
     .header {
       margin-bottom: 10px;
       border-bottom: 1px solid white;
+      text-align: center;
     }
-    .column {
-
+    .column:hover {
+      filter: none !important;
     }
 
     .cell {
@@ -41,28 +50,32 @@
   
   
   <script>
-      const app = {
-        hNum :15,
-        sNum: 5,
-        lNum: 6,
+
+      function stepsArr( step, max) {
+        const arr = [];
+        let curr = 0;
+        while (curr < max) {
+          arr.push(curr);
+          curr += step;
+        }
+        return arr;
       }
 
-      app.hArr = Array.from(Array(360).keys()).filter(e => e % (360/(app.hNum)) === 0);
-      // app.sArr = Array.from(Array(101).keys()).filter(e => e % (100/(app.sNum-1)) === 0);
-      app.sArr = [25,50,75,100];
-      // app.lArr = Array.from(Array(101).keys()).filter(e => e % (100/(app.lNum-1)) === 0).slice(1,-1);
-      app.lArr = [10, 20, 30, 40, 50, 60, 70, 80]
+      sArr = [25,50,75,100];
 
-      console.log(app.sNum, app.sArr)
+      // hArr = stepsArr(20, 360);
+      hArr = stepsArr(30, 360);
+      lArr = [10, 20, 30, 40, 50, 60, 70, 80]
+
 
       function colors(s) {
         let colors = `<div><h1>Colors: s=${s}</h1><div class="colors">`;
-        for (let h of app.hArr) {
+        for (let h of hArr) {
           colors += `<div class="column">
           <div class="header">${h}</div>`;
-          for (let l of app.lArr) {
-            // for (let s of app.sArr) {
-              colors += `<div class="cell" style="color:${l>60 ? 'black' : 'white'};background-color: hsl(${h},${s}%,${l}%);">${l}</div>`
+          for (let l of lArr) {
+            // for (let s of sArr) {
+              colors += `<div class="cell" style="color:${contrast(hsl2rgb(h,s,l))};background-color: hsl(${h},${s}%,${l}%);">${l}</div>`
             // }
           }
           colors += `</div>`;
@@ -72,13 +85,13 @@
         return colors;
       }
 
-      function grays() {
-        let colors = `<div><h1>Grays s=0</h1><div class="colors">`;
+      function greys() {
+        let colors = `<div><h1>Greys s=0</h1><div class="colors">`;
         h = 0; s = 0;
         colors += `<div class="column">
         <div class="header">${h}</div>`;
-        for (let l of app.lArr) {
-          // for (let s of app.sArr) {
+        for (let l of lArr) {
+          // for (let s of sArr) {
             colors += `<div class="cell" style="color:${l>60 ? 'black' : 'white'};background-color: hsl(${h},${s}%,${l}%);">${l}</div>`
           // }
         }
@@ -92,7 +105,39 @@
 
 
 
-      document.querySelector('#colors').innerHTML = app.sArr.reduce((p,c)=>p+colors(c),'') + grays();
+      document.querySelector('#colors').innerHTML = sArr.reduce((p,c)=>p+colors(c),'') + greys();
+
+
+
+      // ---------- HELPERS
+
+      window.hsl2rgb = hsl2rgb;
+      function hsl2rgb (h, s, l) {
+        s /= 100;
+        l /= 100;
+        const k = n => (n + h / 30) % 12;
+        const a = s * Math.min(l, 1 - l);
+        const f = n =>
+          l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+        return [255 * f(0), 255 * f(8), 255 * f(4)];
+      }
+
+      function contrast ([red, green, blue]) {
+        return (0.2126 * red + 0.7152 * green + 0.0722 * blue) > 142 ? 'black' : 'white';
+      }
+
+      // function luminance(r, g, b) {
+      //   var a = [r, g, b].map(function (v) {
+      //       v /= 255;
+      //       return v <= 0.03928
+      //           ? v / 12.92
+      //           : Math.pow( (v + 0.055) / 1.055, 2.4 );
+      //   });
+      //   return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+      // }
+
+
+
 
 
   </script>
